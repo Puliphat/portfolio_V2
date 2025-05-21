@@ -22,7 +22,7 @@ function App() {
     const checkScreenSize = () => {
       if (window.innerWidth <= 480) {
         setScreenSize('mobile');
-      } else if (window.innerWidth <= 1200) {
+      } else if (window.innerWidth <= 1290) {
         setScreenSize('medium');
       } else if (window.innerWidth <= 1999) {
         setScreenSize('large');
@@ -50,17 +50,17 @@ function App() {
   const getParallaxConfig = () => {
     const baseConfig = {
       medium: {
-        pages: 5,
-        moonFactor: 3.5,
-        landOffset: 2.5,
-        landFactor: 4.5,
-        catEndPoint: 4.8,
+        pages: 5.8,
+        moonFactor: 4,
+        landOffset:2.4,
+        landFactor: 5.8,
+        catEndPoint: 5,
         sectionOffsets: {
-          hero: 0.07,
+          hero: 0.1,
           skills: 1,
-          projects: 2.5,
-          education: 4.5,
-          footer: 5
+          projects: 3,
+          education: 5,
+          footer: 5.7
         }
       },
       large: {
@@ -177,7 +177,6 @@ function App() {
           </div>
         </div>
       ) : (
-
         // เวอร์ชั่นเดสก์ท็อปและแท็บเล็ต - ใช้ Parallax
         <Parallax pages={parallaxConfig.pages} ref={ref} className={`desktop-parallax ${screenSize}`}>
           <ParallaxLayer

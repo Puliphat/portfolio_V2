@@ -42,6 +42,8 @@ body {
     z-index: 1;
 }
 
+
+
 .mobile-bg-image {
     position: absolute;
     width: 100%;
@@ -61,11 +63,15 @@ body {
 
 .mobile-content .content-section {
     margin: 40px auto !important;
-    width: 90%;
+    width: 97% !important;
     max-width: 500px;
     padding: 25px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     z-index: 20;
+    border-radius: 12px;
 }
 
 .mobile-content .footer-section {
@@ -92,15 +98,16 @@ div[style*="transform-style: preserve-3d"] {
     height: 100%;
     max-width: 1200px;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.57);
     backdrop-filter: blur(8px);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     position: relative;
     z-index: 10;
     pointer-events: auto !important;
     overflow: visible !important;
     padding: 30px;
     margin: 20px auto;
+    border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 .content-section.project-section {
@@ -334,4 +341,6 @@ a, button, [role="button"] {
     height: auto;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
 }
+
+
 
