@@ -87,7 +87,7 @@ function App() {
           hero: 0.07,
           skills: 0.95,
           projects: 1.9,
-          education: 3,
+          education: 2.7,
           footer: 4.3
         }
       }

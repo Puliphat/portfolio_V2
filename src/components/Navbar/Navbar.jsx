@@ -44,26 +44,26 @@ const Navbar = ({ parallaxRef, screenSize }) => {
     // ปรับค่า offset ตามขนาดหน้าจอ
     const mediumOffsets = {
       home: 0,
-      skills: 0.95,
-      projects: 1.9,
-      education: 3.0,
-      contact: 3.4
+      skills: 0.6,
+      projects: 2,
+      education: 5,
+      contact: 5.5
     };
     
     const largeOffsets = {
-      home: 0,
-      skills: 1,
+      hero: 0.07,
+      skills: 0.6,
       projects: 2,
       education: 3.2,
-      contact: 3.6
+      contact: 3.7
     };
     
     const xlargeOffsets = {
       home: 0,
-      skills: 1.05,
-      projects: 2.1,
-      education: 3.3,
-      contact: 3.8
+      skills: 0.6,
+      projects: 2,
+      education: 3,
+      contact: 3.6
     };
     
     // เลือก offsets ตามขนาดหน้าจอ
