@@ -3,31 +3,27 @@
     text-align: center;
     overflow: hidden;
     position: relative;
-    padding: 60px 0;
-
+    padding: 30px;
 
     & .education_title{
       font-weight: 700;
       margin-bottom: 50px;
       font-size: 36px;
-      color: #2c3e50;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       position: relative;
       display: inline-block;
       z-index: 2;
 
-      &::after {
+      /* &::after {
           content: '';
           position: absolute;
           bottom: -15px;
           left: 50%;
           transform: translateX(-50%);
-          width: 80px;
+          width: 70%;
           height: 4px;
           background: #3b82f6;
           border-radius: 2px;
-          box-shadow: 0 2px 5px rgba(59, 130, 246, 0.3);
-      }
+      } */
     }
  
     & .education_item{ 
@@ -39,7 +35,7 @@
         margin: 0 auto;
         margin-bottom: 50px;
         padding: 30px;
-        background-color: #ffffff;
+        background-color: #cccbcb;
         border-radius: 16px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         z-index: 2;
@@ -87,7 +83,7 @@
                 position: absolute;
                 bottom: -5px;
                 left: 0;
-                width: 40px;
+                width: 90%;
                 height: 3px;
                 background-color: #e11d48;
                 border-radius: 2px;

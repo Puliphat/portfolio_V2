@@ -1,5 +1,6 @@
 nav {
-    background: linear-gradient(to right, #1e40af, #3b82f6);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
     position: fixed;
     top: 0;
     overflow: hidden;
@@ -11,9 +12,9 @@ nav {
     transition: all 0.3s ease;
 
     &.scrolled {
-        background: rgba(30, 64, 175, 0.95);
+        background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(10px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         padding: 0px 0;
     }
 
@@ -94,7 +95,7 @@ nav {
         & .button {
             width: 100px;
             height: 35px;
-            background-color: #fff;
+            background-color: rgba(30, 64, 175, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -102,14 +103,15 @@ nav {
             transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
-            border: 2px solid #000;
+            border: 2px solid #93c5fd;
 
             &:hover {
-                box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
+                background-color: rgba(59, 130, 246, 0.8);
+                box-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
             }
 
             & a{
-                color: #000;
+                color: #fff;
                 font-size: 18px;
                 font-weight: 500;
                 text-decoration: none;
@@ -166,7 +168,7 @@ nav {
             transition: color 0.2s ease;
 
             &:hover {
-                color: #a8c7ff;
+                color: #93c5fd;
             }
           }
     }
@@ -174,7 +176,7 @@ nav {
     & .mobile_button {
         width: 100px;
         height: 35px;
-        background-color: rgb(143, 183, 243);
+        background-color: rgba(30, 64, 175, 0.7);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -183,10 +185,11 @@ nav {
         cursor: pointer;
         margin-left: 25px;
         margin-bottom: 15px;
+        border: 2px solid #93c5fd;
 
         &:hover{
-            box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.7);
-            background-color: white;
+            box-shadow: 0 0 15px rgba(147, 197, 253, 0.6);
+            background-color: rgba(59, 130, 246, 0.8);
         }
 
         & a{
@@ -197,7 +200,7 @@ nav {
         }
 
         &:hover a {
-            color: #000;
+            color: #93c5fd;
         }
     }
 }
