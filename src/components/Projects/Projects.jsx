@@ -68,6 +68,7 @@ function Projects() {
             requires users to register and log in before streaming movies.
           </p>
         </div>
+
         <div className={styles.projects_items}>
           <a
             href="https://github.com/Puliphat/detect-eye-and-smile"
