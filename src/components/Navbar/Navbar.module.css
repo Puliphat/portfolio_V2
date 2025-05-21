@@ -124,6 +124,69 @@ nav {
     }
 }
 
+/* สไตล์สำหรับโหมดมือถือ */
+nav.mobile {
+    /* ใช้สไตล์เดิมที่กำหนดไว้ใน @media screen and (max-width:480px) */
+}
+
+/* สไตล์สำหรับโหมดแท็บเล็ต (หน้าจอขนาดกลาง) */
+nav.medium .container {
+    max-width: 900px;
+    padding: 0 15px;
+}
+
+nav.medium .nav_con .logo {
+    font-size: 26px;
+}
+
+nav.medium .nav_con ul li {
+    margin: 0 25px;
+    font-size: 16px;
+}
+
+/* สไตล์สำหรับโหมดเดสก์ท็อป (หน้าจอขนาดใหญ่) */
+nav.large .container {
+    max-width: 1170px;
+}
+
+nav.large .nav_con .logo {
+    font-size: 28px;
+}
+
+nav.large .nav_con ul li {
+    margin: 0 37px;
+    font-size: 18px;
+}
+
+/* สไตล์สำหรับโหมดหน้าจอขนาดใหญ่มาก */
+nav.xlarge .container {
+    max-width: 1600px;
+    padding: 0 30px;
+}
+
+nav.xlarge .nav_con {
+    height: 70px;
+}
+
+nav.xlarge .nav_con .logo {
+    font-size: 36px;
+}
+
+nav.xlarge .nav_con ul li {
+    margin: 0 50px;
+    font-size: 22px;
+}
+
+nav.xlarge .nav_con .button {
+    width: 130px;
+    height: 45px;
+    border-radius: 25px;
+}
+
+nav.xlarge .nav_con .button a {
+    font-size: 22px;
+}
+
 @media screen and (max-width:480px) {
     .nav_con{
         flex-direction: column;
@@ -205,7 +268,19 @@ nav {
     }
 }
 
-@media screen and (min-width: 481px) {
+/* สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .mobile_menu, .mobile_button, .bars {
+        display: none;
+    }
+
+    .nav_con {
+        padding: 0 20px;
+    }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (เดสก์ท็อป) */
+@media screen and (min-width: 1025px) {
     .mobile_menu, .mobile_button, .bars {
         display: none;
     }

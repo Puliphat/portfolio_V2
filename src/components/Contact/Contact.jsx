@@ -14,15 +14,15 @@ function Contact() {
           className={`${styles.contact_list} ${isContactInView ? styles.animate : ''}`}
         >
             <div className={styles.contact_items}>
-              <FaPhone/>
+              <FaPhone className={styles.contact_icon}/>
               <h3>091-705-5775</h3>
             </div>
             <div className={styles.contact_items}>
-              <FaEnvelope/> <br/>
+              <FaEnvelope className={styles.contact_icon}/> <br/>
               <h3 className={styles.contact_email}>myty.2543@gmail.com</h3>
             </div>
             <div className={styles.contact_items}>
-              <FaLine/>
+              <FaLine className={styles.contact_icon}/>
               <h3>Line id: mity_35</h3>
             </div>
         </div>

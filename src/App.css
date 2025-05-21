@@ -68,15 +68,18 @@ body {
     z-index: 20;
 }
 
-
 .mobile-content .footer-section {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
     width: 100%;
+    min-height: 250px;
     text-align: center;
     margin-top: auto;
     z-index: 20;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(59, 130, 246, 0.3);
 }
 
 div[style*="transform-style: preserve-3d"] {
@@ -85,8 +88,8 @@ div[style*="transform-style: preserve-3d"] {
 
 .content-section {
     min-height: fit-content !important;
-    height: auto !important;
     width: 100%;
+    height: 100%;
     max-width: 1200px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -98,12 +101,6 @@ div[style*="transform-style: preserve-3d"] {
     overflow: visible !important;
     padding: 30px;
     margin: 20px auto;
-}
-
-.content-section.hero-section {
-    margin-top: 50px;
-    min-height: fit-content;
-    height: 600px !important;
 }
 
 .content-section.project-section {
@@ -125,15 +122,23 @@ div[style*="transform-style: preserve-3d"] {
 }
 
 .footer-section {
-    height: auto !important;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.8) 100%);
+    backdrop-filter: blur(10px);
     position: relative;
-    z-index: 10;
+    z-index: 15;
     pointer-events: auto !important;
     overflow: visible !important;
-    padding: 20px;
+    margin: 0;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(59, 130, 246, 0.3);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 /* Fix for links and buttons in parallax layers */
@@ -155,8 +160,108 @@ a, button, [role="button"] {
     pointer-events: none;
 }
 
+/* ปรับขนาดแมวสำหรับหน้าจอขนาดกลาง */
+.desktop-cat.medium {
+    width: 120px;
+    top: 130px;
+    left: 10px;
+}
 
+/* ปรับขนาดแมวสำหรับหน้าจอขนาดใหญ่ */
+.desktop-cat.large {
+    width: 160px;
+    top: 150px;
+    left: 15px;
+}
 
+/* ปรับขนาดแมวสำหรับหน้าจอขนาดใหญ่มาก */
+.desktop-cat.xlarge {
+    width: 200px;
+    top: 180px;
+    left: 30px;
+}
+
+/* สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    .content-section {
+        width: 100%;
+        padding: 25px;
+    }
+    
+    .content-section.hero-section {
+        height: 700px !important;
+    }
+    
+    .desktop-parallax.medium .content-section {
+        margin: 15px auto;
+    }
+    
+    
+    .footer-section {
+        width: 100%;
+        min-height: 200px;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่ (เดสก์ท็อป) */
+@media screen and (min-width: 1025px) and (max-width: 1999px) {
+    .content-section {
+        width: 100%;
+        max-width: 1100px;
+        padding: 30px;
+    }
+    
+    .content-section.hero-section {
+        height: 600px !important;
+    }
+    
+    .footer-section {
+        width: 100%;
+        min-height: 250px;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+/* สำหรับหน้าจอขนาดใหญ่มาก (2000px ขึ้นไป) */
+@media screen and (min-width: 2000px) {
+    .content-section {
+        width: 75%;
+        max-width: 1600px;
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .content-section.hero-section {
+        height: 800px !important;
+    }
+    
+    .content-section.skills-section {
+        min-height: 700px;
+    }
+    
+    .content-section.project-section {
+        padding-bottom: 80px;
+    }
+    
+    .footer-section {
+        width: 100%;
+        min-height: 300px;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    /* เพิ่มขนาดตัวอักษรและองค์ประกอบสำหรับหน้าจอใหญ่มาก */
+    h1, h2, h3 {
+        font-size: 120%;
+    }
+    
+    p, a, button, input, li {
+        font-size: 110%;
+    }
+}
 
 @media screen and (max-width: 480px) {
     /* สไตล์สำหรับอุปกรณ์เล็ก */
@@ -197,7 +302,14 @@ a, button, [role="button"] {
     }
     
     .mobile-content .footer-section {
-        padding: 20px 10px 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        min-height: 200px;
+        margin-top: 30px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
     }
     
     .mobile-cat {

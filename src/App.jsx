@@ -14,34 +14,121 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 
 function App() {
   const ref = useRef();
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  const [screenSize, setScreenSize] = useState('mobile');
+  const [screenHeight, setScreenHeight] = useState('normal');
 
-  // ตรวจจับหน้าจอมือถือ
+  // ตรวจจับขนาดหน้าจอ
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 480);
+    const checkScreenSize = () => {
+      if (window.innerWidth <= 480) {
+        setScreenSize('mobile');
+      } else if (window.innerWidth <= 1200) {
+        setScreenSize('medium');
+      } else if (window.innerWidth <= 1999) {
+        setScreenSize('large');
+      } else {
+        setScreenSize('xlarge');
+      }
+
+      // ตรวจสอบความสูงหน้าจอ
+      if (window.innerHeight < 800) {
+        setScreenHeight('short');
+      } else if (window.innerHeight > 1200) {
+        setScreenHeight('tall');
+      } else {
+        setScreenHeight('normal');
+      }
     };
     
-    // ตรวจสอบเมื่อโหลดและเมื่อมีการปรับขนาดหน้าจอ
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
     
-    return () => window.removeEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // สำหรับการทำงานของ parallax ในโหมด desktop เท่านั้น
-  const parallaxConfig = {
-    pages: 4.57,
-    moonFactor: 3.5,
-    landOffset: 2,
-    landFactor: 4.4,
-    catEndPoint: 4.5
+  // ปรับค่า parallax ตามขนาดหน้าจอและความสูง
+  const getParallaxConfig = () => {
+    const baseConfig = {
+      medium: {
+        pages: 5,
+        moonFactor: 3.5,
+        landOffset: 2.5,
+        landFactor: 4.5,
+        catEndPoint: 4.8,
+        sectionOffsets: {
+          hero: 0.07,
+          skills: 1,
+          projects: 2.5,
+          education: 4.5,
+          footer: 5
+        }
+      },
+      large: {
+        pages: 4.5,
+        moonFactor: 3.5,
+        landOffset: 2,
+        landFactor: 4.5,
+        catEndPoint: 4.5,
+        sectionOffsets: {
+          hero: 0.07,
+          skills: 0.95,
+          projects: 1.9,
+          education: 3,
+          footer: 4.4
+        }
+      },
+      xlarge: {
+        pages: 4.4,
+        moonFactor: 4.0,
+        landOffset: 3.0,
+        landFactor: 5.0,
+        catEndPoint: 4.3,
+        sectionOffsets: {
+          hero: 0.07,
+          skills: 0.95,
+          projects: 1.9,
+          education: 3,
+          footer: 4.3
+        }
+      }
+    };
+
+    const config = baseConfig[screenSize] || baseConfig.large;
+
+    // ปรับจำนวนหน้าเพจตามความสูงหน้าจอ
+    if (screenHeight === 'short') {
+      return {
+        ...config,
+        pages: config.pages + 1.0,
+        landOffset: config.landOffset + 1.0,
+        catEndPoint: config.catEndPoint + 1.0,
+        sectionOffsets: {
+          ...config.sectionOffsets,
+          footer: config.sectionOffsets.footer + 1.0
+        }
+      };
+    } else if (screenHeight === 'tall') {
+      return {
+        ...config,
+        pages: config.pages - 0.8,
+        landOffset: config.landOffset - 0.8,
+        catEndPoint: config.catEndPoint - 0.3,
+        sectionOffsets: {
+          ...config.sectionOffsets,
+          footer: config.sectionOffsets.footer - 0.8
+        }
+      };
+    }
+
+    return config;
   };
+
+  const parallaxConfig = getParallaxConfig();
 
   return (
     <>
-      <Navbar parallaxRef={ref} isMobile={isMobile}/>
-      {isMobile ? (
+      <Navbar parallaxRef={ref} screenSize={screenSize} />
+      {screenSize === 'mobile' ? (
         // โหมดมือถือ - ไม่ใช้ Parallax
         <div className="mobile-content">
           <div className="mobile-background">
@@ -91,9 +178,8 @@ function App() {
         </div>
       ) : (
 
-        // เวอร์ชั่นเดสก์ท็อป - ใช้ Parallax
-
-        <Parallax pages={parallaxConfig.pages} ref={ref} className="desktop-parallax">
+        // เวอร์ชั่นเดสก์ท็อปและแท็บเล็ต - ใช้ Parallax
+        <Parallax pages={parallaxConfig.pages} ref={ref} className={`desktop-parallax ${screenSize}`}>
           <ParallaxLayer
             offset={0}
             speed={1}
@@ -103,6 +189,7 @@ function App() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              objectFit: 'cover',
               zIndex: 1,
             }}
           />
@@ -114,8 +201,8 @@ function App() {
             style={{
               backgroundImage: `url(${land})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              objectFit: 'cover',
               zIndex: 1,
             }}
           />
@@ -128,12 +215,12 @@ function App() {
               pointerEvents: 'none'
             }}
           >
-            <img src={cat} className="desktop-cat" alt="แมว" />
+            <img src={cat} className={`desktop-cat ${screenSize}`} alt="แมว" />
           </ParallaxLayer>
 
           {/* Section: Hero */}
           <ParallaxLayer
-            offset={0.1}
+            offset={parallaxConfig.sectionOffsets.hero}
             speed={0.5}
             style={{
               display: 'flex',
@@ -150,8 +237,8 @@ function App() {
 
           {/* Section: Skills */}
           <ParallaxLayer
-            offset={1}
-            speed={0.7}
+            offset={parallaxConfig.sectionOffsets.skills}
+            speed={0.5}
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -167,8 +254,8 @@ function App() {
 
           {/* Section: Projects */}
           <ParallaxLayer
-            offset={2}
-            speed={0.7}
+            offset={parallaxConfig.sectionOffsets.projects}
+            speed={0.5}
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -182,16 +269,17 @@ function App() {
             </div>
           </ParallaxLayer>
 
-          {/* Section: Education, Contact, and Footer */}
+          {/* Section: Education and Contact */}
           <ParallaxLayer
-            offset={3.4}
+            offset={parallaxConfig.sectionOffsets.education}
             speed={0.5}
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               zIndex: 10,
-              gap: '2rem',
+              gap: '1.5rem',
+              minHeight: '100vh'
             }}
           >
             <div className="content-section education-section">
@@ -204,6 +292,22 @@ function App() {
                 <Contact/>
               </section>
             </div>
+          </ParallaxLayer>
+          
+          {/* Footer Section */}
+          <ParallaxLayer
+            offset={parallaxConfig.sectionOffsets.footer}
+            speed={0}
+            factor={0.15}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+              zIndex: 15,
+              width: '100%',
+              pointerEvents: 'auto',
+            }}
+          >
             <div className="footer-section">
               <Footer/>
             </div>

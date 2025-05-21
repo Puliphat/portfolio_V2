@@ -1,5 +1,5 @@
 .hero_wrapper {
-  height: 600px;
+  height: 700px;
   overflow: hidden;
   position: relative;
 
@@ -82,6 +82,9 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+      height: 60px;
+      display: flex;
+      align-items: center;
     }
 
     & .text_4 {
@@ -123,6 +126,7 @@
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.25);
             transform: scale(1.05);
             border-color: rgba(147, 197, 253, 0.5);
+            background-color: rgba(59, 130, 246, 0.3);
           }
         }
 
@@ -130,6 +134,7 @@
           width: 24px;
           height: 24px;
           transition: all 0.3s ease;
+          color: rgb(7, 80, 177);
         }
       }
     }
@@ -194,6 +199,7 @@
             height: 80px;
             display: flex;
             align-items: center;
+            justify-content: center;
           }
           
           
@@ -208,4 +214,114 @@
           }
         }
      }
+}
+
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .hero_wrapper {
+    height: 700px;
+    
+    & .hero_con {
+      margin-top: 80px;
+      
+      & .text_1 {
+        font-size: 22px;
+      }
+      
+      & .text_2 {
+        font-size: 70px;
+      }
+      
+      & .text_3 {
+        font-size: 32px;
+        height: 70px;
+      }
+      
+      & .text_4 {
+        font-size: 16px;
+        max-width: 450px;
+      }
+      
+      & .hero_img {
+        width: 280px;
+        height: 280px;
+        margin-right: 60px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1999px) {
+  .hero_wrapper {
+    height: 700px;
+    
+    & .hero_con {
+      & .text_3 {
+        height: 80px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .hero_wrapper {
+    height: 800px;
+    
+    & .container {
+      max-width: 1600px;
+    }
+    
+    & .hero_con {
+      margin-top: 150px;
+      
+      & .text_1 {
+        font-size: 32px;
+      }
+      
+      & .text_2 {
+        font-size: 100px;
+      }
+      
+      & .text_3 {
+        font-size: 48px;
+        height: 100px;
+      }
+      
+      & .text_4 {
+        font-size: 20px;
+        max-width: 650px;
+        line-height: 1.9;
+      }
+      
+      & .hero_social {
+        gap: 30px;
+        
+        & li a {
+          width: 60px;
+          height: 60px;
+        }
+        
+        & li svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      
+      & .hero_img {
+        width: 400px;
+        height: 400px;
+        margin-right: 200px;
+      }
+    }
+  }
+}
+
+/* CSS ของ social_icon */
+.social_icon {
+  color: #fff;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+a:hover .social_icon {
+  color: #3b82f6;
 }

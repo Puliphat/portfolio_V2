@@ -3,10 +3,11 @@ import styles from "./Navbar.module.css"
 import { BiSolidCat } from "react-icons/bi"
 import { FaBars } from "react-icons/fa6"
 
-const Navbar = ({ parallaxRef, isMobile }) => {
+const Navbar = ({ parallaxRef, screenSize }) => {
   
   const [isToggled, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const isMobile = screenSize === 'mobile';
   
   // Detect scroll position
   useEffect(() => {
@@ -40,13 +41,40 @@ const Navbar = ({ parallaxRef, isMobile }) => {
   };
 
   const getOffsetForSection = (section) => {
-    const offsets = {
+    // ปรับค่า offset ตามขนาดหน้าจอ
+    const mediumOffsets = {
+      home: 0,
+      skills: 0.95,
+      projects: 1.9,
+      education: 3.0,
+      contact: 3.4
+    };
+    
+    const largeOffsets = {
       home: 0,
       skills: 1,
       projects: 2,
       education: 3.2,
       contact: 3.6
     };
+    
+    const xlargeOffsets = {
+      home: 0,
+      skills: 1.05,
+      projects: 2.1,
+      education: 3.3,
+      contact: 3.8
+    };
+    
+    // เลือก offsets ตามขนาดหน้าจอ
+    let offsets;
+    if (screenSize === 'medium') {
+      offsets = mediumOffsets;
+    } else if (screenSize === 'xlarge') {
+      offsets = xlargeOffsets;
+    } else {
+      offsets = largeOffsets;
+    }
     
     return offsets[section] || 0;
   };
@@ -65,7 +93,7 @@ const Navbar = ({ parallaxRef, isMobile }) => {
   };
 
   return (
-    <nav className={`${scrolled ? styles.scrolled : ''} ${isMobile ? styles.mobile : ''}`}>
+    <nav className={`${scrolled ? styles.scrolled : ''} ${styles[screenSize]}`}>
       <div className={styles.container}>
         <div className={styles.nav_con}>
           <div className={styles.logo}>

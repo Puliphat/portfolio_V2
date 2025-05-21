@@ -50,17 +50,17 @@ function Hero() {
             <ul className={styles.hero_social}>
               <li>
                 <a href="https://github.com/Puliphat" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                  <FaGithub style={{ color: '#181717' }}/>
+                  <FaGithub className={styles.social_icon} />
                 </a>
               </li>
               <li>
                 <a href="https://www.facebook.com/puli.putichai/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                  <FaFacebook style={{ color: '#1877F2' }}/>
+                  <FaFacebook className={styles.social_icon} />
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/puliphat-puttichaivanichkij-21367622b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                  <FaLinkedinIn style={{ color: '#0A66C2' }}/>
+                  <FaLinkedinIn className={styles.social_icon} />
                 </a>
               </li>
             </ul>
