@@ -64,17 +64,17 @@ function App() {
         }
       },
       large: {
-        pages: 4.5,
+        pages: 4.8,
         moonFactor: 3.5,
         landOffset: 2,
         landFactor: 4.5,
-        catEndPoint: 4.5,
+        catEndPoint: 4.8,
         sectionOffsets: {
           hero: 0.07,
           skills: 0.95,
-          projects: 1.9,
-          education: 3,
-          footer: 4.4
+          projects: 2,
+          education: 3.5,
+          footer: 4.7
         }
       },
       xlarge: {
