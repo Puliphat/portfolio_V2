@@ -9,6 +9,7 @@ import shopProject from "../img/minishop.jpg";
 import pokeProject from "../img/poke.jpg";
 import restfulProject from "../img/restful-api.jpg";
 import pokeProject2 from "../img/poke-next.jpg";
+import portfolioV1 from "../img/port_v1.jpg";
 import useInView from '../../hooks/useInView';
 
 function Projects() {
@@ -115,6 +116,52 @@ function Projects() {
             for organizing this workshop.
           </p>
         </div>
+
+        <div className={styles.projects_items}>
+          <a
+            href="https://portfolio-v1-six-zeta.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tilt scale={1.1} transitionSpeed={2500} tiltReverse={true}>
+              <img src={portfolioV1} alt="Portfolio_V1" />
+            </Tilt>
+          </a>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <h3>Portfolio_V1 </h3>
+
+            <a
+              href="https://github.com/Puliphat/portfolioV1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className={styles.icon} style={{ color: "#181717" }} />
+            </a>
+          </div>
+          <p>
+          My first portfolio website, built with React and Vite for fast page loading. It featured a clean, mobile-responsive design to present my profile and work.
+          Although it has been succeeded by a more polished and feature-rich Version 2, some may still prefer the simplicity of Version 1.
+          </p>
+        </div>
+        
+          <div className={styles.projects_items}>
+          <a
+            href="https://github.com/Puliphat/search-travel"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Tilt scale={1.1} transitionSpeed={2500} tiltReverse={true}>
+              <img src={travelProject} alt="Search Travel Project" />
+            </Tilt>
+          </a>
+          <h3>Search Travel</h3>
+          <p>
+            Full-stack web application using Node.js and MySQL to provide data
+            retrieval API. The frontend uses React and React Data Table
+            Component to display and search data dynamically.
+          </p>
+        </div>
+
         <div className={styles.projects_items}>
           <a
             href="https://github.com/Puliphat/restful-api"
@@ -134,23 +181,7 @@ function Projects() {
             Mikelopster for organizing this workshop.
           </p>
         </div>
-          <div className={styles.projects_items}>
-          <a
-            href="https://github.com/Puliphat/search-travel"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Tilt scale={1.1} transitionSpeed={2500} tiltReverse={true}>
-              <img src={travelProject} alt="Search Travel Project" />
-            </Tilt>
-          </a>
-          <h3>Search Travel</h3>
-          <p>
-            Full-stack web application using Node.js and MySQL to provide data
-            retrieval API. The frontend uses React and React Data Table
-            Component to display and search data dynamically.
-          </p>
-        </div>
+
         <div className={styles.projects_items}>
           <a
             href="https://github.com/Puliphat/minishop"
