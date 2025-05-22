@@ -9,6 +9,7 @@ const Navbar = ({ parallaxRef, screenSize }) => {
   const [scrolled, setScrolled] = useState(false);
   const isMobile = screenSize === 'mobile';
   const isTablet = screenSize === 'small-table';
+  const isMacbook = screenSize === 'macbook';
   
   // Detect scroll position
   useEffect(() => {
@@ -51,6 +52,14 @@ const Navbar = ({ parallaxRef, screenSize }) => {
       contact: 5.5
     };
     
+    const macbookOffsets = {
+      home: 0,
+      skills: 1,
+      projects: 2.4,
+      education: 5,
+      contact: 5.5
+    };
+    
     const largeOffsets = {
       hero: 0.07,
       skills: 0.6,
@@ -79,6 +88,8 @@ const Navbar = ({ parallaxRef, screenSize }) => {
     let offsets;
     if (screenSize === 'medium') {
       offsets = mediumOffsets;
+    } else if (screenSize === 'macbook') {
+      offsets = macbookOffsets;
     } else if (screenSize === 'xlarge') {
       offsets = xlargeOffsets;
     } else if (screenSize === 'small-table') {
@@ -114,7 +125,7 @@ const Navbar = ({ parallaxRef, screenSize }) => {
           {/* แสดง navigation ปกติสำหรับแท็บเล็ตและเดสก์ท็อป */}
           {!isMobile && (
             <>
-              <ul className={isTablet ? styles.tablet_nav : ''}>
+              <ul className={`${isTablet ? styles.tablet_nav : ''} ${isMacbook ? styles.macbook_nav : ''}`}>
                 <li>
                   <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
                 </li>
@@ -125,7 +136,7 @@ const Navbar = ({ parallaxRef, screenSize }) => {
                   <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
                 </li>
               </ul>
-              <div className={`${styles.button} ${isTablet ? styles.tablet_button : ''}`}>
+              <div className={`${styles.button} ${isTablet ? styles.tablet_button : ''} ${isMacbook ? styles.macbook_button : ''}`}>
                 <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
               </div>
             </>

@@ -88,10 +88,10 @@ function App() {
         landFactor: 6,
         catEndPoint: 5.5,
         sectionOffsets: {
-          hero: 0.02,
-          skills: 0.99,
-          projects: 2,
-          education: 4.3,
+          hero: 0.2,
+          skills: 1,
+          projects: 2.7,
+          education: 5,
           footer: 5.7
         }
       },
