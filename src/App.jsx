@@ -24,9 +24,9 @@ function App() {
         setScreenSize('mobile');
       } else if (window.innerWidth <= 850) {
         setScreenSize('small-table');
-      } else if (window.innerWidth <= 1280) {
+      } else if (window.innerWidth <= 1279) {
         setScreenSize('medium');
-      } else if (window.innerWidth > 1280 && window.innerWidth <= 1450) {
+      } else if (window.innerWidth >= 1280 && window.innerWidth <= 1450) {
         setScreenSize('macbook');
       } else if (window.innerWidth <= 1999) {
         setScreenSize('large');
@@ -89,9 +89,9 @@ function App() {
         catEndPoint: 5.5,
         sectionOffsets: {
           hero: 0.02,
-          skills: 0.95,
+          skills: 0.99,
           projects: 2,
-          education: 4,
+          education: 4.3,
           footer: 5.7
         }
       },
