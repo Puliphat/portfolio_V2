@@ -24,8 +24,10 @@ function App() {
         setScreenSize('mobile');
       } else if (window.innerWidth <= 850) {
         setScreenSize('small-table');
-      } else if (window.innerWidth <= 1290) {
+      } else if (window.innerWidth <= 1280) {
         setScreenSize('medium');
+      } else if (window.innerWidth > 1280 && window.innerWidth <= 1450) {
+        setScreenSize('macbook');
       } else if (window.innerWidth <= 1999) {
         setScreenSize('large');
       } else {
@@ -77,6 +79,20 @@ function App() {
           projects: 2,
           education: 4.5,
           footer: 5.5
+        }
+      },
+      macbook: {
+        pages: 5.8,
+        moonFactor: 4,
+        landOffset: 3,
+        landFactor: 6,
+        catEndPoint: 5.5,
+        sectionOffsets: {
+          hero: 0.02,
+          skills: 0.95,
+          projects: 2,
+          education: 4,
+          footer: 5.7
         }
       },
       large: {

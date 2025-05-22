@@ -172,6 +172,13 @@ a, button, [role="button"] {
     left: 10px;
 }
 
+/* ปรับขนาดแมวสำหรับ MacBook */
+.desktop-cat.macbook {
+    width: 140px;
+    top: 140px;
+    left: 15px;
+}
+
 /* ปรับขนาดแมวสำหรับหน้าจอขนาดใหญ่ */
 .desktop-cat.large {
     width: 160px;
@@ -202,6 +209,34 @@ a, button, [role="button"] {
     .footer-section {
         width: 100%;
         min-height: 250px;
+        margin: 0;
+        border-radius: 0;
+    }
+}
+
+/* สำหรับ MacBook */
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+    .content-section {
+        width: 95% !important;
+        max-width: 1000px;
+        padding: 25px;
+    }
+    
+    .content-section.hero-section {
+        height: 550px !important;
+    }
+    
+    .content-section.skills-section {
+        min-height: 550px;
+    }
+    
+    .desktop-parallax.macbook .content-section {
+        margin: 15px auto;
+    }
+    
+    .footer-section {
+        width: 100%;
+        min-height: 230px;
         margin: 0;
         border-radius: 0;
     }
