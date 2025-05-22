@@ -8,6 +8,7 @@ const Navbar = ({ parallaxRef, screenSize }) => {
   const [isToggled, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const isMobile = screenSize === 'mobile';
+  const isTablet = screenSize === 'small-table';
   
   // Detect scroll position
   useEffect(() => {
@@ -44,8 +45,8 @@ const Navbar = ({ parallaxRef, screenSize }) => {
     // ปรับค่า offset ตามขนาดหน้าจอ
     const mediumOffsets = {
       home: 0,
-      skills: 0.6,
-      projects: 2,
+      skills: 1,
+      projects: 3,
       education: 5,
       contact: 5.5
     };
@@ -65,6 +66,14 @@ const Navbar = ({ parallaxRef, screenSize }) => {
       education: 3,
       contact: 3.6
     };
+
+    const tabletOffsets = {
+      home: 0,
+      skills: 0.6,
+      projects: 2,
+      education: 4.3,
+      contact: 4.8
+    };
     
     // เลือก offsets ตามขนาดหน้าจอ
     let offsets;
@@ -72,6 +81,8 @@ const Navbar = ({ parallaxRef, screenSize }) => {
       offsets = mediumOffsets;
     } else if (screenSize === 'xlarge') {
       offsets = xlargeOffsets;
+    } else if (screenSize === 'small-table') {
+      offsets = tabletOffsets;
     } else {
       offsets = largeOffsets;
     }
@@ -97,45 +108,54 @@ const Navbar = ({ parallaxRef, screenSize }) => {
       <div className={styles.container}>
         <div className={styles.nav_con}>
           <div className={styles.logo}>
-            <a href="#" onClick={(e) => handleNavClick(e, 'home')}><BiSolidCat/> PULIPHAT </a>
+            <a href="#" onClick={(e) => handleNavClick(e, 'home')}><BiSolidCat/> PULIPHAT_V2 </a>
           </div>
 
-          <ul>
-            <li>
-              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
-            </li>
-            <li>
-              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
-            </li>
-            <li>
-              <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
-            </li>
-          </ul>
-          <div className={styles.button}>
-            <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
-          </div>
+          {/* แสดง navigation ปกติสำหรับแท็บเล็ตและเดสก์ท็อป */}
+          {!isMobile && (
+            <>
+              <ul className={isTablet ? styles.tablet_nav : ''}>
+                <li>
+                  <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
+                </li>
+                <li>
+                  <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+                </li>
+                <li>
+                  <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
+                </li>
+              </ul>
+              <div className={`${styles.button} ${isTablet ? styles.tablet_button : ''}`}>
+                <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+              </div>
+            </>
+          )}
         </div>
 
-        {/* Mobile menu */}
-        <FaBars className={styles.bars} onClick={handleToggle} />
-        {isToggled ? (
+        {/* Mobile menu - แสดงเฉพาะบนมือถือ */}
+        {isMobile && (
           <>
-          <ul className={styles.mobile_menu} >
-            <li>
-              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
-            </li>
-            <li>
-              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
-            </li>
-            <li>
-              <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
-            </li>
-          </ul>
-          <div className={styles.mobile_button}>
-            <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
-          </div>
+            <FaBars className={styles.bars} onClick={handleToggle} />
+            {isToggled && (
+              <>
+                <ul className={styles.mobile_menu}>
+                  <li>
+                    <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
+                  </li>
+                  <li>
+                    <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+                  </li>
+                  <li>
+                    <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
+                  </li>
+                </ul>
+                <div className={styles.mobile_button}>
+                  <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+                </div>
+              </>
+            )}
           </>
-        ) : null}
+        )}
       </div>
     </nav>
   );

@@ -20,14 +20,14 @@ nav {
     }
 
     &  .logo{
-        font-size: 28px;
+        font-size: 20px;
         color: #fff;
         font-weight: 600;
         letter-spacing: 1px;
     }
 
     & a{
-        color: #fff;
+        color: #ffffff;
         text-decoration: none;
         font-weight: 500;
         transition: all 0.2s ease;
@@ -40,7 +40,7 @@ nav {
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #93c5fd;
+            background: linear-gradient(90deg, #ffffff 0%, #2177d8 100%);
             transition: width 0.3s ease;
         }
 
@@ -125,10 +125,7 @@ nav {
     }
 }
 
-/* สไตล์สำหรับโหมดมือถือ */
-nav.mobile {
-    /* ใช้สไตล์เดิมที่กำหนดไว้ใน @media screen and (max-width:480px) */
-}
+/* สไตล์สำหรับโหมดมือถือฺอยู่ด้านล่าง */
 
 /* สไตล์สำหรับโหมดแท็บเล็ต (หน้าจอขนาดกลาง) */
 nav.medium .container {
@@ -191,7 +188,7 @@ nav.xlarge .nav_con .button a {
 @media screen and (max-width:480px) {
     .nav_con{
         flex-direction: column;
-        height: auto !important;
+        height: 20px !important;
         margin: 25px 0;
         align-items: start !important;
         margin-left: 30px;
@@ -270,13 +267,92 @@ nav.xlarge .nav_con .button a {
 }
 
 /* สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-    .mobile_menu, .mobile_button, .bars {
-        display: none;
-    }
-
+@media screen and (min-width: 481px) and (max-width: 800px) {
     .nav_con {
         padding: 0 20px;
+        height: 55px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tablet_nav {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .tablet_nav li {
+        margin: 0 15px;
+        color: #fff;
+        margin-top: 3px;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+
+    .tablet_nav a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        position: relative;
+        padding: 5px 0;
+    }
+
+    .tablet_nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(90deg, #ffffff 0%, #2177d8 100%);
+        transition: width 0.3s ease;
+    }
+
+    .tablet_nav a:hover::after {
+        width: 100%;
+    }
+
+    .tablet_nav a:hover {
+        color: #93c5fd;
+    }
+
+    .tablet_button {
+        width: 90px;
+        height: 32px;
+        background-color: rgba(30, 64, 175, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: 2px solid #93c5fd;
+        margin-left: 10px;
+    }
+
+    .tablet_button:hover {
+        box-shadow: 0 0 15px rgba(147, 197, 253, 0.6);
+        background-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .tablet_button a {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .tablet_button:hover a {
+        color: #93c5fd;
+    }
+
+    /* ซ่อน mobile menu และ toggle button บนแท็บเล็ต */
+    .mobile_menu, .mobile_button, .bars {
+        display: none !important;
     }
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
 import styles from './Skills.module.css'
-import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaNode, FaDocker ,FaPhp ,FaBootstrap   } from 'react-icons/fa6'
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaNode, FaDocker ,FaPhp ,FaBootstrap,FaAws    } from 'react-icons/fa6'
 import { GrMysql } from "react-icons/gr";
 import { BiLogoTailwindCss } from "react-icons/bi";
 import { SiPostman, SiExpress } from "react-icons/si";
 import { RiNextjsFill } from "react-icons/ri";
+import { DiRedis } from "react-icons/di";
 import  useInView  from '../../hooks/useInView'
 
 
@@ -12,9 +13,9 @@ const frontendSkills = [
   { name: "HTML", icon: <FaHtml5 style={{ color: '#E34F26' }} />, level: 100 },
   { name: "CSS", icon: <FaCss3Alt style={{ color: '#4a90e2' }} />, level: 100 },
   { name: "JavaScript", icon: <FaJs style={{ color: '#F7DF1E' }} />, level: 100 },
-  { name: "React.js", icon: <FaReact style={{ color: '#61DAFB' }} />, level: 95 },
-  { name: "Next.js", icon: <RiNextjsFill style={{ color: '#000000' }} />, level: 70 },
-  { name: "TailwindCSS", icon: <BiLogoTailwindCss style={{ color: '#06B6D4' }} />, level: 85 },
+  { name: "React.js", icon: <FaReact style={{ color: '#61DAFB' }} />, level: 90 },
+  { name: "Next.js", icon: <RiNextjsFill style={{ color: '#000000' }} />, level: 80 },
+  { name: "TailwindCSS", icon: <BiLogoTailwindCss style={{ color: '#06B6D4' }} />, level: 80 },
   { name: "Bootstrap", icon: <FaBootstrap style={{ color: '#7A63A1' }} />, level: 70 }
 ];
 
@@ -24,9 +25,11 @@ const backendSkills = [
   { name: "MySQL", icon: <GrMysql style={{ color: '#000000' }} />, level: 90 },
   { name: "PHP", icon: <FaPhp style={{ color: '#777BB4' }} />, level: 50 },
   { name: "Next.js", icon: <RiNextjsFill style={{ color: '#000000' }} />, level: 70 },
-  { name: "Git", icon: <FaGitAlt style={{ color: '#F05032' }} />, level: 90 },
+  { name: "Git", icon: <FaGitAlt style={{ color: '#F05032' }} />, level: 80 },
   { name: "Postman", icon: <SiPostman style={{ color: '#FF6C37' }} />, level: 100 },
-  { name: "Docker", icon: <FaDocker style={{ color: '#2496ED' }} />, level: 85 }
+  { name: "Docker", icon: <FaDocker style={{ color: '#2496ED' }} />, level: 70 },
+  // { name: "Redis", icon: <DiRedis style={{ color: '#C42039' }} />, level: 40 },
+  { name: "AWS", icon: <FaAws style={{ color: '#FF9900' }} />, level: 0 }
 ];
 
 function Skills() {

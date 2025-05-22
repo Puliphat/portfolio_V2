@@ -42,8 +42,6 @@ body {
     z-index: 1;
 }
 
-
-
 .mobile-bg-image {
     position: absolute;
     width: 100%;
@@ -188,29 +186,6 @@ a, button, [role="button"] {
     left: 30px;
 }
 
-/* สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-    .content-section {
-        width: 100%;
-        padding: 25px;
-    }
-    
-    .content-section.hero-section {
-        height: 700px !important;
-    }
-    
-    .desktop-parallax.medium .content-section {
-        margin: 15px auto;
-    }
-    
-    
-    .footer-section {
-        width: 100%;
-        min-height: 200px;
-        margin: 0;
-        border-radius: 0;
-    }
-}
 
 /* สำหรับหน้าจอขนาดใหญ่ (เดสก์ท็อป) */
 @media screen and (min-width: 1025px) and (max-width: 1999px) {
@@ -340,6 +315,137 @@ a, button, [role="button"] {
     width: 80px;
     height: auto;
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.5));
+}
+
+/* iPad/Tablet specific styles */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .content-section {
+        width: 90%;
+        max-width: 900px;
+        padding: 25px;
+        margin: 15px auto;
+    }
+
+    .content-section.hero-section {
+        height: 600px !important;
+    }
+
+    .desktop-parallax.medium .content-section {
+        margin: 15px auto;
+    }
+
+    .footer-section {
+        width: 100%;
+        min-height: 200px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    /* Parallax adjustments for iPad */
+    .mobile-bg-image.moon {
+        transform: translateY(-20%) scale(1.2);
+    }
+
+    .mobile-bg-image.land {
+        transform: translateY(-30%) scale(1.1);
+    }
+
+    /* Adjust cat position for iPad */
+    .desktop-cat {
+        width: 120px;
+        top: 120px;
+        left: 20px;
+    }
+}
+
+/* iPad Pro specific styles */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+    .content-section {
+        width: 85%;
+        max-width: 1000px;
+        padding: 30px;
+        margin: 20px auto;
+    }
+
+    .content-section.hero-section {
+        height: 650px !important;
+    }
+
+    /* Parallax adjustments for iPad Pro */
+    .mobile-bg-image.moon {
+        transform: translateY(-15%) scale(1.1);
+    }
+
+    .mobile-bg-image.land {
+        transform: translateY(-25%) scale(1.05);
+    }
+
+    /* Adjust cat position for iPad Pro */
+    .desktop-cat {
+        width: 140px;
+        top: 130px;
+        left: 25px;
+    }
+}
+
+/* iPad Mini specific styles */
+@media screen and (min-width: 768px) and (max-width: 810px) {
+    .content-section {
+        width: 92%;
+        max-width: 800px;
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .content-section.hero-section {
+        height: 550px !important;
+    }
+
+    /* Parallax adjustments for iPad Mini */
+    .mobile-bg-image.moon {
+        transform: translateY(-25%) scale(1.3);
+    }
+
+    .mobile-bg-image.land {
+        transform: translateY(-35%) scale(1.2);
+    }
+
+    /* Adjust cat position for iPad Mini */
+    .desktop-cat {
+        width: 100px;
+        top: 100px;
+        left: 15px;
+    }
+}
+
+/* Landscape mode for tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .content-section {
+        width: 95%;
+        max-width: 1000px;
+        padding: 20px;
+        margin: 10px auto;
+    }
+
+    .content-section.hero-section {
+        height: 500px !important;
+    }
+
+    /* Parallax adjustments for landscape */
+    .mobile-bg-image.moon {
+        transform: translateY(-10%) scale(1.1);
+    }
+
+    .mobile-bg-image.land {
+        transform: translateY(-20%) scale(1.05);
+    }
+
+    /* Adjust cat position for landscape */
+    .desktop-cat {
+        width: 110px;
+        top: 100px;
+        left: 20px;
+    }
 }
 
 

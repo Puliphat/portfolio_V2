@@ -22,6 +22,8 @@ function App() {
     const checkScreenSize = () => {
       if (window.innerWidth <= 480) {
         setScreenSize('mobile');
+      } else if (window.innerWidth <= 850) {
+        setScreenSize('small-table');
       } else if (window.innerWidth <= 1290) {
         setScreenSize('medium');
       } else if (window.innerWidth <= 1999) {
@@ -52,8 +54,8 @@ function App() {
       medium: {
         pages: 5.8,
         moonFactor: 4,
-        landOffset:2.4,
-        landFactor: 5.8,
+        landOffset: 2.4,
+        landFactor: 6,
         catEndPoint: 5,
         sectionOffsets: {
           hero: 0.1,
@@ -61,6 +63,20 @@ function App() {
           projects: 3,
           education: 5,
           footer: 5.7
+        }
+      },
+      'small-table': {
+        pages: 5.6,
+        moonFactor: 3.9,
+        landOffset: 2.6,
+        landFactor: 5.6,
+        catEndPoint: 4.9,
+        sectionOffsets: {
+          hero: 0.09,
+          skills: 0.99,
+          projects: 2,
+          education: 4.5,
+          footer: 5.5
         }
       },
       large: {
