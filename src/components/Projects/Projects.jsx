@@ -119,7 +119,7 @@ function Projects() {
 
         <div className={styles.projects_items}>
           <a
-            href="https://portfolio-v1-six-zeta.vercel.app/"
+            href="https://puliphat-portfolio.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
           >
