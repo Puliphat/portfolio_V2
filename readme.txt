@@ -1,1 +1,6 @@
-This is my portfolio, which serves as a collection of my work, the technologies (stack) I use, and my contact information.
+## Getting Started
+
+1. Install dependencies:
+   ```bash
+   npm install
+   npm run dev
